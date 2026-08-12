@@ -2,3 +2,9 @@ from models.user import User
 from models.farm import Farm
 from models.field import Field
 from models.crop import Crop
+from models.irrigation import Irrigation
+from models.treatment import Treatment
+from models.health import CropHealth
+from models.harvest import Harvest
+from models.sale import Sale
+from models.alert import Alert
