@@ -1,4 +1,12 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    DateTime,
+    ForeignKey,
+    Boolean
+)
+
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -33,9 +41,9 @@ class Alert(Base):
     )
 
     is_read = Column(
-        String(20),
+        Boolean,
         nullable=False,
-        default="False"
+        default=False
     )
 
     created_at = Column(
@@ -43,4 +51,6 @@ class Alert(Base):
         nullable=False
     )
 
-    crop = relationship("Crop")
+    crop = relationship(
+        "Crop"
+    )
