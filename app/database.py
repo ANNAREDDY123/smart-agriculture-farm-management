@@ -28,3 +28,17 @@ def get_db():
 
     finally:
         db.close()
+
+
+from models import (
+    User,
+    Farm,
+    Field,
+    Crop,
+    Irrigation,
+    Treatment,
+    CropHealth,
+    Harvest,
+    Sale,
+    Alert
+)
