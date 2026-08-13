@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, Float
+from sqlalchemy.orm import relationship
 
 from database import Base
 
@@ -46,4 +47,9 @@ class Treatment(Base):
     remarks = Column(
         String(500),
         nullable=True
+    )
+
+    crop = relationship(
+        "Crop",
+        back_populates="treatments"
     )
