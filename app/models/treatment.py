@@ -1,10 +1,10 @@
-from sqlalchemy import Column, Integer, String, Date, ForeignKey, Text
+from sqlalchemy import Column, Integer, String, Date, ForeignKey, Float
 
 from database import Base
 
 
 class Treatment(Base):
-    __tablename__ = "treatments"
+    __tablename__ = "crop_treatments"
 
     id = Column(
         Integer,
@@ -18,23 +18,32 @@ class Treatment(Base):
         nullable=False
     )
 
-    treatment_type = Column(
+    product_name = Column(
+        String(150),
+        nullable=False
+    )
+
+    product_type = Column(
         String(100),
         nullable=False
     )
 
-    treatment_date = Column(
+    quantity = Column(
+        Float,
+        nullable=False
+    )
+
+    applied_date = Column(
         Date,
         nullable=False
     )
 
-    description = Column(
-        Text,
-        nullable=True
+    cost = Column(
+        Float,
+        nullable=False
     )
 
-    status = Column(
-        String(50),
-        nullable=False,
-        default="Completed"
+    remarks = Column(
+        String(500),
+        nullable=True
     )
