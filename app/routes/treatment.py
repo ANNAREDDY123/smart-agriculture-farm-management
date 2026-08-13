@@ -12,6 +12,10 @@ router = APIRouter(
 )
 
 
+# ==========================
+# CREATE TREATMENT
+# ==========================
+
 @router.post(
     "/",
     response_model=TreatmentResponse
@@ -33,10 +37,12 @@ def create_treatment(
 
     treatment = Treatment(
         crop_id=treatment_data.crop_id,
-        treatment_type=treatment_data.treatment_type,
-        treatment_date=treatment_data.treatment_date,
-        description=treatment_data.description,
-        status=treatment_data.status
+        product_name=treatment_data.product_name,
+        product_type=treatment_data.product_type,
+        quantity=treatment_data.quantity,
+        applied_date=treatment_data.applied_date,
+        cost=treatment_data.cost,
+        remarks=treatment_data.remarks
     )
 
     db.add(treatment)
@@ -45,6 +51,10 @@ def create_treatment(
 
     return treatment
 
+
+# ==========================
+# GET ALL TREATMENTS
+# ==========================
 
 @router.get(
     "/",
@@ -56,6 +66,10 @@ def get_treatments(
 
     return db.query(Treatment).all()
 
+
+# ==========================
+# GET TREATMENT BY ID
+# ==========================
 
 @router.get(
     "/{treatment_id}",
@@ -78,6 +92,10 @@ def get_treatment(
 
     return treatment
 
+
+# ==========================
+# UPDATE TREATMENT
+# ==========================
 
 @router.put(
     "/{treatment_id}",
@@ -110,16 +128,22 @@ def update_treatment(
         )
 
     treatment.crop_id = treatment_data.crop_id
-    treatment.treatment_type = treatment_data.treatment_type
-    treatment.treatment_date = treatment_data.treatment_date
-    treatment.description = treatment_data.description
-    treatment.status = treatment_data.status
+    treatment.product_name = treatment_data.product_name
+    treatment.product_type = treatment_data.product_type
+    treatment.quantity = treatment_data.quantity
+    treatment.applied_date = treatment_data.applied_date
+    treatment.cost = treatment_data.cost
+    treatment.remarks = treatment_data.remarks
 
     db.commit()
     db.refresh(treatment)
 
     return treatment
 
+
+# ==========================
+# DELETE TREATMENT
+# ==========================
 
 @router.delete(
     "/{treatment_id}"
