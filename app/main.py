@@ -7,6 +7,8 @@ from routes.crops import router as crop_router
 from routes.irrigation import router as irrigation_router
 from routes.treatment import router as treatment_router
 from routes.harvest import router as harvest_router
+from routes.sale import router as sale_router
+
 
 app = FastAPI(
     title="Smart Agriculture & Farm Management System"
@@ -20,6 +22,7 @@ app.include_router(crop_router)
 app.include_router(irrigation_router)
 app.include_router(treatment_router)
 app.include_router(harvest_router)
+app.include_router(sale_router)
 
 @app.get("/")
 def root():
