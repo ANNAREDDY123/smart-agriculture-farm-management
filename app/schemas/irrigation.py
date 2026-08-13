@@ -15,6 +15,7 @@ class IrrigationCreate(BaseModel):
 class IrrigationResponse(BaseModel):
     id: int
     field_id: int
+    crop_id: int
     irrigation_date: date
     water_quantity: float
     duration_minutes: int
