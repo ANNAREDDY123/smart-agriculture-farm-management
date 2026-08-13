@@ -12,9 +12,8 @@ router = APIRouter(
 )
 
 
-# ==========================
 # CREATE TREATMENT
-# ==========================
+
 
 @router.post(
     "/",
@@ -52,9 +51,9 @@ def create_treatment(
     return treatment
 
 
-# ==========================
+
 # GET ALL TREATMENTS
-# ==========================
+
 
 @router.get(
     "/",
@@ -67,9 +66,9 @@ def get_treatments(
     return db.query(Treatment).all()
 
 
-# ==========================
+
 # GET TREATMENT BY ID
-# ==========================
+
 
 @router.get(
     "/{treatment_id}",
@@ -93,9 +92,8 @@ def get_treatment(
     return treatment
 
 
-# ==========================
 # UPDATE TREATMENT
-# ==========================
+
 
 @router.put(
     "/{treatment_id}",
@@ -141,9 +139,9 @@ def update_treatment(
     return treatment
 
 
-# ==========================
+
 # DELETE TREATMENT
-# ==========================
+
 
 @router.delete(
     "/{treatment_id}"
