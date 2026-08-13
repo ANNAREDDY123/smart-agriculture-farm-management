@@ -54,23 +54,22 @@ def create_irrigation(
             detail="Irrigation can be recorded only for fields with active crops"
         )
 
-    # Create irrigation record
-    irrigation = Irrigation(
-        field_id=irrigation_data.field_id,
-        irrigation_date=irrigation_data.irrigation_date,
-        water_quantity=irrigation_data.water_quantity,
-        duration_minutes=irrigation_data.duration_minutes,
-        irrigation_status=irrigation_data.irrigation_status,
-        remarks=irrigation_data.remarks
-    )
+  # Create irrigation record
+irrigation = Irrigation(
+    field_id=irrigation_data.field_id,
+    crop_id=active_crop.id,
+    irrigation_date=irrigation_data.irrigation_date,
+    water_quantity=irrigation_data.water_quantity,
+    duration_minutes=irrigation_data.duration_minutes,
+    irrigation_status=irrigation_data.irrigation_status,
+    remarks=irrigation_data.remarks
+)
 
-    db.add(irrigation)
-    db.commit()
-    db.refresh(irrigation)
+db.add(irrigation)
+db.commit()
+db.refresh(irrigation)
 
-    return irrigation
-
-
+return irrigation
 
 # GET ALL IRRIGATION
 
