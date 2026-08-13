@@ -5,7 +5,7 @@ from routes.farms import router as farm_router
 from routes.fields import router as field_router
 from routes.crops import router as crop_router
 from routes.irrigation import router as irrigation_router
-
+from routes.treatment import router as treatment_router
 
 app = FastAPI(
     title="Smart Agriculture & Farm Management System"
@@ -17,7 +17,7 @@ app.include_router(farm_router)
 app.include_router(field_router)
 app.include_router(crop_router)
 app.include_router(irrigation_router)
-
+app.include_router(treatment_router)
 
 @app.get("/")
 def root():
