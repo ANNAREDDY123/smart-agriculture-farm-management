@@ -9,3 +9,4 @@ from models.harvest import Harvest
 from models.sale import Sale
 from models.alert import Alert
 from .treatment import Treatment
+from .crop_health import CropHealth
